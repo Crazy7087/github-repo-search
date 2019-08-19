@@ -1,0 +1,16 @@
+.customH1 {
+  overflow: hidden;
+  text-align: left;
+}
+.customH1 > span {
+  position: relative;
+  display: inline-block;
+}
+.customH1 > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-bottom: 2px solid;
+  width: 40em;
+  margin: 0 20px;
+}

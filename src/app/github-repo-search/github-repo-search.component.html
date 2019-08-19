@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <input
+        class="form-control form-control"
+        (keyup.enter)="search($event.target.value)"
+        id="name"
+        placeholder="Search"
+      />
+    </div>
+  </div>
+</div>
+
+<div
+  class="container"
+  *ngFor="
+    let githubRepo of githubInfo$
+      | async
+      | paginate: { itemsPerPage: 10, currentPage: p }
+  "
+>
+  <hr />
+  <div class="row">
+    <div class="col-sm-8">
+      <p class="text-primary">{{ githubRepo.name }}</p>
+      <p class="text-dark">{{ githubRepo.description }}</p>
+      <p class="text-secondary">
+        Updated on {{ githubRepo.updateDate | date }}
+      </p>
+    </div>
+    <div class="col-sm-2">
+      <fa-icon [icon]="faCircle"></fa-icon>
+
+      {{ githubRepo.language }}
+    </div>
+    <div class="col-sm-2">
+      <fa-icon [icon]="faStar"></fa-icon>
+      {{ githubRepo.stargazers_count }}
+    </div>
+    <hr />
+  </div>
+</div>
+<div class="text-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
