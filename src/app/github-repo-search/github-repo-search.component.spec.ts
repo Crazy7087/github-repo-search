@@ -12,7 +12,13 @@ describe("GithubRepoSearchComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [GithubRepoSearchComponent]
+      declarations: [GithubRepoSearchComponent],
+      imports: [
+        HttpClientModule,
+        NgbModule.forRoot(),
+        NgxPaginationModule,
+        FontAwesomeModule
+      ]
     }).compileComponents();
   }));
 
